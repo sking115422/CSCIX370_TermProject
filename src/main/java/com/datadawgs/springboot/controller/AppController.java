@@ -15,24 +15,23 @@ public class AppController {
 
 
     @GetMapping(path="/qqq")
-    public List<String> getQQQ (){
-        return appRepository.getQQQ();
+    public List<String> getVolQQQ (){
+        return appRepository.getVolQQQ();
     }
 
-
     @GetMapping("/spy")
-    public List<String> spyChart() {
-        return appRepository.getSPY();
+    public List<String> getVolSPY() {
+        return appRepository.getVolSPY();
     }
 
     @GetMapping("/vti")
-    public List<String> vtiChart() {
-        return appRepository.getVTI();
+    public List<String> getVolVTI() {
+        return appRepository.getVolVTI();
     }
 
     @GetMapping("/iwm")
-    public List<String> iwmChart() {
-        return appRepository.getIWM();
+    public List<String> getVolIMW() {
+        return appRepository.getVolIWM();
     }
 
 }
