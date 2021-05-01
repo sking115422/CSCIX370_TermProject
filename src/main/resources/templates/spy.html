@@ -1,10 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>SPY</title>
 </head>
+
+<h1> SPY</h1>
 <body>
-    spy
+
+<div alight="left">
+
+    <tr>
+        <label class="form-label" >Course</label>
+        <td>
+            <a th:href="@{'/spy/'">Delete</a>
+        </td>
+    </tr>
+</div>
+
 </body>
 </html>
