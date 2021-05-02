@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>IWM</title>
+</head>
+<body>
+<div align="center">
+    <div style="float: left;">
+        <h1>IWM</h1>
+        <br/><br/>
+        <table border="1" cellpadding="10">
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Open</th>
+                <th>Close</th>
+                <th>High</th>
+                <th>Low</th>
+                <th>Volume</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="stocks : ${stocks}">
+                <td th:text="${stocks.date}">Date</td>
+                <td th:text="${stocks.open}">Open</td>
+                <td th:text="${stocks.close}">Close</td>
+                <td th:text="${stocks.high}">High</td>
+                <td th:text="${stocks.low}">Low</td>
+                <td th:text="${stocks.volume}">Volume</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <table border="1" cellpadding="10">
+            <h2>
+                Highest Open
+            </h2>
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Open</th>
+                <th>Close</th>
+                <th>High</th>
+                <th>Low</th>
+                <th>Volume</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="highestOpen : ${highestOpen}">
+                <td th:text="${highestOpen.date}">Date</td>
+                <td th:text="${highestOpen.open}">Open</td>
+                <td th:text="${highestOpen.close}">Close</td>
+                <td th:text="${highestOpen.high}">High</td>
+                <td th:text="${highestOpen.low}">Low</td>
+                <td th:text="${highestOpen.volume}">Volume</td>
+            </tr>
+            </tbody>
+        </table>
+        <table border="1" cellpadding="10">
+            <h2>
+                Highest Volume
+            </h2>
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Open</th>
+                <th>Close</th>
+                <th>High</th>
+                <th>Low</th>
+                <th>Volume</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="highestVol : ${highestVol}">
+                <td th:text="${highestVol.date}">Date</td>
+                <td th:text="${highestVol.open}">Open</td>
+                <td th:text="${highestVol.close}">Close</td>
+                <td th:text="${highestVol.high}">High</td>
+                <td th:text="${highestVol.low}">Low</td>
+                <td th:text="${highestVol.volume}">Volume</td>
+            </tr>
+            </tbody>
+        </table>
+        <table border="1" cellpadding="10">
+            <h2>
+                Highest Close
+            </h2>
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Open</th>
+                <th>Close</th>
+                <th>High</th>
+                <th>Low</th>
+                <th>Volume</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="highestClose : ${highestClose}">
+                <td th:text="${highestClose.date}">Date</td>
+                <td th:text="${highestClose.open}">Open</td>
+                <td th:text="${highestClose.close}">Close</td>
+                <td th:text="${highestClose.high}">High</td>
+                <td th:text="${highestClose.low}">Low</td>
+                <td th:text="${highestClose.volume}">Volume</td>
+            </tr>
+            </tbody>
+        </table>
+        <table border="1" cellpadding="10">
+            <h2>
+                Highest % Increase
+            </h2>
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Open</th>
+                <th>Close</th>
+                <th>High</th>
+                <th>Low</th>
+                <th>Volume</th>
+                <th>Percent Change</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="biggestIncrease : ${biggestIncrease}">
+                <td th:text="${biggestIncrease.date}">Date</td>
+                <td th:text="${biggestIncrease.open}">Open</td>
+                <td th:text="${biggestIncrease.close}">Close</td>
+                <td th:text="${biggestIncrease.high}">High</td>
+                <td th:text="${biggestIncrease.low}">Low</td>
+                <td th:text="${biggestIncrease.volume}">Volume</td>
+                <td th:text="${#numbers.formatDecimal((biggestIncrease.close-biggestIncrease.open)/biggestIncrease.open*100,0,2)}">Percent Change</td>
+            </tr>
+            </tbody>
+        </table>
+        <table border="1" cellpadding="10">
+            <h2>
+                Highest % Decrease
+            </h2>
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Open</th>
+                <th>Close</th>
+                <th>High</th>
+                <th>Low</th>
+                <th>Volume</th>
+                <th>Percent Change</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="biggestDecrease : ${biggestDecrease}">
+                <td th:text="${biggestDecrease.date}">Date</td>
+                <td th:text="${biggestDecrease.open}">Open</td>
+                <td th:text="${biggestDecrease.close}">Close</td>
+                <td th:text="${biggestDecrease.high}">High</td>
+                <td th:text="${biggestDecrease.low}">Low</td>
+                <td th:text="${biggestDecrease.volume}">Volume</td>
+                <td th:text="${#numbers.formatDecimal((biggestDecrease.close-biggestDecrease.open)/biggestDecrease.open*100,0,2)}">Percent Change</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
