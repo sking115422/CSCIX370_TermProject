@@ -6,7 +6,13 @@
 </head>
 <body>
   <div align="center">
-    <a th:href="@{/iwm}">IWM-Chart</a>
+    <form action="/iwm">
+      <label for="startdate">Start-Date:</label><br>
+      <input type="date" id="startdate" name="startdate" min="2005-01-03" max="2007-09-29"><br>
+      <label for="enddate">End-Date:</label><br>
+      <input type="date" id="enddate" name="enddate" min="2005-01-03" max="2007-09-29"><br><br>
+      <input type="submit" value="IWM-Chart">
+    </form>
   </div>
 </body>
 </html>
