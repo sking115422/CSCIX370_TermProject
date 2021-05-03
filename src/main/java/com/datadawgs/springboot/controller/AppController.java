@@ -3,6 +3,7 @@ package com.datadawgs.springboot.controller;
 
 import com.datadawgs.springboot.DAO;
 import com.datadawgs.springboot.Stock;
+import com.datadawgs.springboot.StockInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,13 +30,9 @@ public class AppController {
     @RequestMapping("/iwm")
     public String iwmPage(Model model, @RequestParam("startdate") String startdate, @RequestParam("enddate") String  enddate) throws ParseException {
 
-        List<Stock> stockName = dao.getName("iwm");
-        List<Stock> stockDesc = dao.getDescription("iwm");
-        model.addAttribute("stockName", stockName);
-        model.addAttribute("stockDesc", stockDesc);
+        List<StockInfo> stockInfo = dao.getStockInfo("iwm");
+        model.addAttribute("stockInfo", stockInfo.get(0));
 
-        System.out.println(stockName.get(0));
-        System.out.println(stockDesc.get(0));
 
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Date startDate = format.parse(startdate);
