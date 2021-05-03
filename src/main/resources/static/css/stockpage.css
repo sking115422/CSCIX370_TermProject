@@ -32,3 +32,10 @@ html {
     width: 100vw;
     height: 60vh;
 }
+
+#curve_chart1 {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 60vh;
+}
