@@ -8,9 +8,6 @@ public class Stock {
     private double close;
     private double volume;
 
-    private String name;
-    private String description;
-
     protected Stock() {
     }
 
