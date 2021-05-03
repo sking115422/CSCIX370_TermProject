@@ -120,7 +120,11 @@ public class DAO {
         return stocks;
     }
 
-    public Stock get(String date) {
-        return null;
+    public Stock get(String db, Date date) {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String start = dateFormat.format(date);
+        String sql = "SELECT * FROM mydb."+db+" WHERE date='" + start +"'";
+        List<Stock> stock = jdbcTemplate.query(sql,BeanPropertyRowMapper.newInstance(Stock.class));
+        return stock.get(0);
     }
 }

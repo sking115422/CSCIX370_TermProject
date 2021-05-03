@@ -16,11 +16,11 @@
     <br><br>
     <form action="/qqq">
       <label for="qqqStartdate">Start-Date:</label><br>
-      <input type="date" id="qqqStartdate" name="startdate" min="2005-01-03" max="2007-09-29"><br>
+      <input type="date" id="qqqStartdate" name="qqqStartdate" min="2005-01-03" max="2007-09-29"><br>
       <label for="qqqEnddate">End-Date:</label><br>
-      <input type="date" id="qqqEnddate" name="enddate" min="2005-01-03" max="2007-09-29"><br><br>
+      <input type="date" id="qqqEnddate" name="qqqEnddate" min="2005-01-03" max="2007-09-29"><br><br>
       <label for="amount">Amount in $:</label><br>
-      <input type="text" id="amount" name="amount">
+      <input type="number" id="amount" min="0" name="amount" oninput="validity.valid||(value='');">
       <input type="submit" value="QQQ-Chart">
     </form>
   </div>
