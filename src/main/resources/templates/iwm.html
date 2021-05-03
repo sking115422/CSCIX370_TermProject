@@ -1,12 +1,52 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
+<title>IWM</title>
+
 <head>
-    <title>IWM</title>
+    <link href="css/stockpage.css" rel="stylesheet">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+
+        var stocks = /*[[${stock}]]*/ 'Sebastian';
+        var date = /*[[${dates}]]*/ 'Sebastian';
+        var close = /*[[${closing}]]*/ 'Sebastian';
+
+
+        /*]]>*/
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('date', 'Day');
+            data.addColumn('number', 'Closing price');
+
+            for (let i = 0; i < date.length; i++) {
+                var item =[new Date(date[i]), close[i]];
+                data.addRow(item);
+            }
+
+            var options = {
+                title: 'IWM Performance',
+                curveType: 'function',
+                legend: { position: 'bottom' }
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+            chart.draw(data, options);
+        }
+    </script>
 </head>
 <body>
+<h1 class = "title"> (IWM)</h1>
+<h2> Decription- asda ssd asd assssssssssssssssssdfsdfasdd d sd asd s dasd asd asd as a</h2>
+
+<div id = "curve_chart"></div>
 <div align="center">
     <div style="float: left;">
-        <h1>IWM</h1>
+        <h1>IWM Daily Data</h1>
         <br/><br/>
         <table border="1" cellpadding="10">
             <thead>

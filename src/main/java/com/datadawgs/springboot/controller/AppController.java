@@ -14,7 +14,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 public class AppController {
@@ -29,10 +28,32 @@ public class AppController {
 
     @RequestMapping("/iwm")
     public String iwmPage(Model model, @RequestParam("startdate") String startdate, @RequestParam("enddate") String  enddate) throws ParseException {
+
+        Stock stockName = dao.getName("iwm");
+        Stock stockDesc = dao.getDescription("iwm");
+        model.addAttribute("stockName", stockName);
+        model.addAttribute("stockDesc", stockDesc);
+
+        System.out.println(stockName);
+        System.out.println(stockDesc);
+
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Date startDate = format.parse(startdate);
         Date endDate = format.parse(enddate);
-        List<Stock> stocks = dao.list("iwm", startDate, endDate);
+        List<Stock> stocks = dao.list("iwm",startDate, endDate);
+
+        Stock[] stockArray = stocks.toArray(new Stock[stocks.size()]);
+        System.out.println(stockArray.length);
+        System.out.println(stocks.size());
+        String[] dates = stocks.stream().map(t -> t.getDate()).toArray(String[]::new);
+        Double[] closing = stocks.stream().map(t -> t.getClose()).toArray(Double[]::new);
+        System.out.println(dates.length);
+        System.out.println(closing.length);
+        model.addAttribute("stock", stockArray);
+        model.addAttribute("dates", dates);
+        model.addAttribute("closing", closing);
+
+
         List<Stock> highestOpen = dao.highestOpen("iwm", startDate, endDate);
         List<Stock> highestVol = dao.highestVol("iwm", startDate, endDate);
         List<Stock> highestClose = dao.highestClose("iwm", startDate, endDate);
@@ -44,6 +65,8 @@ public class AppController {
         model.addAttribute("highestClose", highestClose);
         model.addAttribute("biggestIncrease", biggestIncrease);
         model.addAttribute("biggestDecrease", biggestDecrease);
+
+
         return "iwm";
     }
 

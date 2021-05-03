@@ -1,15 +1,15 @@
 package com.datadawgs.springboot;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
 @Repository
 @Transactional
@@ -120,6 +120,18 @@ public class DAO {
         return stocks;
     }
 
+    public Stock getName(String ticker) {
+        String sql = "SELECT stockName FROM mydb.stockinfo WHERE stockTicker = '" + ticker + "'";
+        List<Stock> stockName = jdbcTemplate.query(sql,BeanPropertyRowMapper.newInstance(Stock.class));
+        return stockName.get(0);
+    }
+
+    public Stock getDescription(String ticker) {
+        String sql = "SELECT stockDesc FROM mydb.stockinfo WHERE stockTicker = '"+ ticker + "'";
+        List<Stock> stockDesc = jdbcTemplate.query(sql,BeanPropertyRowMapper.newInstance(Stock.class));
+        return stockDesc.get(0);
+    }
+
     public Stock get(String db, Date date) {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String start = dateFormat.format(date);
@@ -127,4 +139,7 @@ public class DAO {
         List<Stock> stock = jdbcTemplate.query(sql,BeanPropertyRowMapper.newInstance(Stock.class));
         return stock.get(0);
     }
+
+
+
 }
