@@ -47,20 +47,30 @@ public class AppController {
         return "iwm";
     }
 
-    @GetMapping(path="/qqq")
-    public String getVolQQQ (Model model){
 
-        Date startDate = new Date(2005, 01, 03);
-        Date endDate = new Date(2006,01,03);
+    @GetMapping(path="/qqq")
+    public String getVolQQQ (Model model) throws ParseException {
+        String startdate ="2005-04-01";
+        String enddate = "2005-06-01";
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Date startDate = format.parse(startdate);
+        Date endDate = format.parse(enddate);
         List<Stock> stocks = dao.list("qqq",startDate, endDate);
 
-        Date[] dates = stocks.stream().map(t -> t.getDate()).toArray(Date[]::new);
-        Double[] price = stocks.stream().map(t -> t.getClose()).toArray(Double[]::new);
-
+        Stock[] stockArray = stocks.toArray(new Stock[stocks.size()]);
+        System.out.println(stockArray.length);
+        System.out.println(stocks.size());
+        String[] dates = stocks.stream().map(t -> t.getDate()).toArray(String[]::new);
+        Double[] closing = stocks.stream().map(t -> t.getClose()).toArray(Double[]::new);
+        System.out.println(dates.length);
+        System.out.println(closing.length);
+        model.addAttribute("stock", stockArray);
         model.addAttribute("dates", dates);
-        model.addAttribute("closing", price);
+        model.addAttribute("closing", closing);
+
         return "qqq";
 
     }
+
 
 }
