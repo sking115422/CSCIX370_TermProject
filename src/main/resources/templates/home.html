@@ -2,26 +2,23 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="ISO-8859-1" />
+  <link href="css/stockpage.css" rel="stylesheet">
   <title>Home</title>
 </head>
 <body>
+  <h1>CSCI 4370 Stock Explorer</h1>
   <div align="center">
-    <form action="/iwm">
+    <form>
       <label for="startdate">Start-Date:</label><br>
       <input type="date" id="startdate" name="startdate" min="2005-01-03" max="2016-01-12"><br>
       <label for="enddate">End-Date:</label><br>
       <input type="date" id="enddate" name="enddate" min="2005-01-03" max="2016-01-12"><br><br>
-      <input type="submit" value="IWM-Chart">
-    </form>
-    <br><br>
-    <form action="/qqq">
-      <label for="qqqStartdate">Start-Date:</label><br>
-      <input type="date" id="qqqStartdate" name="qqqStartdate" min="2005-01-03" max="2016-01-12"><br>
-      <label for="qqqEnddate">End-Date:</label><br>
-      <input type="date" id="qqqEnddate" name="qqqEnddate" min="2005-01-03" max="2016-01-12"><br><br>
       <label for="amount">Amount in $:</label><br>
       <input type="number" id="amount" min="0" name="amount" oninput="validity.valid||(value='');">
-      <input type="submit" value="QQQ-Chart">
+      </br>
+      <input type="submit" value="QQQ-Chart" formaction="/qqq">
+      </br>
+      <input type="submit" value="IWM-Chart" formaction="/iwm">
     </form>
   </div>
 </body>

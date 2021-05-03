@@ -69,7 +69,7 @@ public class AppController {
 
 
     @GetMapping(path="/qqq")
-    public String getVolQQQ (Model model, @RequestParam("qqqStartdate") String startdate, @RequestParam("qqqEnddate") String  enddate, @RequestParam("amount") String amount) throws ParseException {
+    public String getVolQQQ (Model model, @RequestParam("startdate") String startdate, @RequestParam("enddate") String  enddate, @RequestParam("amount") String amount) throws ParseException {
         double value = Double.parseDouble(amount);
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Date startDate = format.parse(startdate);
