@@ -21,9 +21,6 @@ public class Stock {
         this.high = high;
         this.low = low;
         this.volume = volume;
-
-        this.name = name;
-        this. description = description;
     }
 
     public String getDate() {
@@ -70,22 +67,6 @@ public class Stock {
 
     public void setVolume(double volume) {
         this.volume = volume;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
 }
