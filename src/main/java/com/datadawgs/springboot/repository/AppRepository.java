@@ -31,7 +31,7 @@ public class AppRepository {
     }
 
 
-    public List<String> getVolSPY() {
+    public List<String> getVolSPY(String ticker) {
         List<String> spyVolData = new ArrayList <> ();
         spyVolData.addAll(jdbcTemplate.queryForList("SELECT volume FROM mydb.spy LIMIT 10;", String.class));
 

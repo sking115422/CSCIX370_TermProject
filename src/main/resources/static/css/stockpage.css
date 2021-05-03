@@ -1,0 +1,18 @@
+
+
+html {
+    font-family: verdana;
+    background-color: #203647;
+    color: white;
+}
+
+#curve_chart {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 60vh;
+}
+
+.title {
+    color: #007cc7
+}
