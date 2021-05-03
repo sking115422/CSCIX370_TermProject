@@ -18,10 +18,16 @@
         google.charts.load('current', {'packages':['corechart']});
         google.charts.setOnLoadCallback(drawChart);
 
+        const formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 2
+        })
+
         function drawChart() {
             var data = new google.visualization.DataTable();
             data.addColumn('date', 'Day');
-            data.addColumn('number', 'Closing price');
+            data.addColumn('number', 'Closing Price ($)');
 
             for (let i = 0; i < date.length; i++) {
                 var item =[new Date(date[i]), close[i]];
@@ -31,7 +37,10 @@
             var options = {
                 title: 'IWM Performance',
                 curveType: 'function',
-                legend: { position: 'bottom' }
+                legend: { position: 'in' },
+                vAxes: {
+                    0: {title: '(US Dollars)'},
+                },
             };
 
             var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));

@@ -120,16 +120,16 @@ public class DAO {
         return stocks;
     }
 
-    public Stock getName(String ticker) {
+    public List<Stock> getName(String ticker) {
         String sql = "SELECT stockName FROM mydb.stockinfo WHERE stockTicker = '" + ticker + "'";
         List<Stock> stockName = jdbcTemplate.query(sql,BeanPropertyRowMapper.newInstance(Stock.class));
-        return stockName.get(0);
+        return stockName;
     }
 
-    public Stock getDescription(String ticker) {
+    public List<Stock>  getDescription(String ticker) {
         String sql = "SELECT stockDesc FROM mydb.stockinfo WHERE stockTicker = '"+ ticker + "'";
         List<Stock> stockDesc = jdbcTemplate.query(sql,BeanPropertyRowMapper.newInstance(Stock.class));
-        return stockDesc.get(0);
+        return stockDesc;
     }
 
     public Stock get(String db, Date date) {

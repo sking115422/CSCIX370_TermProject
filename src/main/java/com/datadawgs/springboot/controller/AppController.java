@@ -29,13 +29,13 @@ public class AppController {
     @RequestMapping("/iwm")
     public String iwmPage(Model model, @RequestParam("startdate") String startdate, @RequestParam("enddate") String  enddate) throws ParseException {
 
-        Stock stockName = dao.getName("iwm");
-        Stock stockDesc = dao.getDescription("iwm");
+        List<Stock> stockName = dao.getName("iwm");
+        List<Stock> stockDesc = dao.getDescription("iwm");
         model.addAttribute("stockName", stockName);
         model.addAttribute("stockDesc", stockDesc);
 
-        System.out.println(stockName);
-        System.out.println(stockDesc);
+        System.out.println(stockName.get(0));
+        System.out.println(stockDesc.get(0));
 
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Date startDate = format.parse(startdate);
