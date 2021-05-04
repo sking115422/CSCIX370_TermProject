@@ -100,7 +100,7 @@
             <tr th:each="highestOpen : ${highestOpen}">
                 <td th:text="${highestOpen.date}">Date</td>
                 <td th:text="'$ ' + ${highestOpen.open}">Open</td>
-                <td th:text="'$ ' + ${highestOpen.open * numberOfStock}">Open</td>
+                <td th:text="'$ ' + ${#numbers.formatDecimal((highestOpen.getOpen() * numberOfStock), 0, 2)}">Open</td>
             </tr>
             </tbody>
         </table>
@@ -121,7 +121,7 @@
             <tr th:each="highestVol : ${highestVol}">
                 <td th:text="${highestVol.date}">Date</td>
                 <td th:text="${highestVol.volume}">Volume</td>
-                <td th:text="'$ ' + ${highestVol.getClose() * numberOfStock}">Open</td>
+                <td th:text="'$ ' + ${#numbers.formatDecimal((highestVol.getClose() * numberOfStock), 0, 2)}">Open</td>
             </tr>
             </tbody>
         </table>
@@ -142,7 +142,7 @@
             <tr th:each="highestClose : ${highestClose}">
                 <td th:text="${highestClose.date}">Date</td>
                 <td th:text="'$ ' + ${highestClose.close}">Close</td>
-                <td th:text="'$ ' + ${(highestClose.getClose() * numberOfStock)}">Open</td>
+                <td th:text="'$ ' + ${#numbers.formatDecimal((highestClose.getClose() * numberOfStock), 0, 2)}">Open</td>
             </tr>
             </tbody>
         </table>
@@ -163,7 +163,7 @@
             <tr th:each="biggestIncrease : ${biggestIncrease}">
                 <td th:text="${biggestIncrease.date}">Date</td>
                 <td th:text="${#numbers.formatDecimal((biggestIncrease.close-biggestIncrease.open)/biggestIncrease.open*100,0,2)} + '%'">Percent Change</td>
-                <td th:text="'$ ' + ${(biggestIncrease.close-biggestIncrease.open) * numberOfStock}">Open</td>
+                <td th:text="'$ ' + ${#numbers.formatDecimal((biggestIncrease.close-biggestIncrease.open) * numberOfStock, 0, 2)}">Open</td>
             </tr>
             </tbody>
         </table>
@@ -184,7 +184,7 @@
             <tr th:each="biggestDecrease : ${biggestDecrease}">
                 <td th:text="${biggestDecrease.date}">Date</td>
                 <td th:text="${#numbers.formatDecimal((biggestDecrease.close-biggestDecrease.open)/biggestDecrease.open*100,0,2) + '%'}">Percent Change</td>
-                <td th:text="'$ ' + ${(biggestDecrease.close-biggestDecrease.open) * numberOfStock}">Open</td>
+                <td th:text="'$ ' + ${#numbers.formatDecimal((biggestDecrease.close-biggestDecrease.open) * numberOfStock, 0, 2)}">Open</td>
             </tr>
             </tbody>
         </table>
