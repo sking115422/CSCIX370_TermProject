@@ -58,10 +58,11 @@ controller class to handle the flow of our application between the home page and
 
 
 ## To run
-1. Download from github or extract the .zip file to a local folder.
-2. Run the run_project.py file. This should setup the databases associated in MySQL and compile the code and run the project code.
-3. Open a browser and type "http://localhost:8080/". This should navigate you to the homepage of the project.
-4. From here enter a time frame, an amount of money to invest, and chose from one of the 4 ETF options available. 
+1. Download the project files from [GitHub](https://github.com/sking115422/CSCIX370_TermProject) or use the files provide on eLC and extract the .zip file to a local folder.
+3. Run the run_project.py file. This should set up the databases associated in MySQL after prompting you for your username (probably root) and a password, 
+   compile and run the project code, and finally after a few seconds it should open a browser with the home page of the app displaying.
+4. If the browser does not automatically display, open a browser and type "http://localhost:8080/". This should navigate you to the homepage of the project.
+5. From here enter a time frame, an amount of money to invest, and choose from one of the 4 ETF options available. 
    This should take you a new page displaying all data associated with that particular investment.
 
 
