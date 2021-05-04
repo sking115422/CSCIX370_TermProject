@@ -6,36 +6,59 @@ html {
     color: white;
 }
 
-#tablecont {
+.title {
+    color: #007CC7;
+}
+
+.description {
+    color: #FFDF6C;
+    margin-left: 2vw;
+}
+
+#statscont{
+    margin-top: 2vh;
+    margin-bottom: 5vh;
+    width: 95vw;
     display: flex;
-    justify-content: space-around;
-    width: 100vw;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
     font-size: small;
 }
 
-#col1{
-    width: 40vw;
+.tablecont {
+    text-align: center;
+    margin-bottom: 2vh;
 }
 
-#col2{
-    width: 40vw;
+.tabletitle {
+    text-align: center;
 }
 
 .table {
     background-color: #707070;
     border: solid black;
+    box-shadow: 0 4px 8px 0 rgba(247, 247, 247, .5 );
+
+}
+
+.graphcont {
+    display: flex;
+    justify-content: center;
 }
 
 #curve_chart {
     display: flex;
     justify-content: center;
-    width: 100vw;
-    height: 60vh;
+    width: 95vw;
+    height: 40vh;
+    border: 3px solid black;
+
 }
 
 #curve_chart1 {
     display: flex;
     justify-content: center;
-    width: 100vw;
-    height: 60vh;
+    width: 95vw;
+    height: 40vh;
+    border: 3px solid black;
 }

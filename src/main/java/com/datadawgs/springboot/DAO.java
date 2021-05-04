@@ -63,7 +63,8 @@ public class DAO {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String start = dateFormat.format(startDate);
         String end = dateFormat.format(endDate);
-        String sql = "SELECT * FROM mydb."+db+" WHERE CLOSE = (SELECT MAX(CLOSE) FROM mydb."+db+" WHERE date >= '" + start + "' AND date <= '" + end + "') LIMIT 1";
+        String sql = "SELECT * FROM mydb."+db+" WHERE CLOSE = (SELECT MAX(CLOSE) FROM mydb."+db+" " +
+                "WHERE date >= '" + start + "' AND date <= '" + end + "') LIMIT 1";
         List<Stock> stocks = jdbcTemplate.query(sql,
                 BeanPropertyRowMapper.newInstance(Stock.class));
         return stocks;
@@ -73,7 +74,8 @@ public class DAO {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String start = dateFormat.format(startDate);
         String end = dateFormat.format(endDate);
-        String sql = "SELECT * FROM mydb."+db+" WHERE VOLUME = (SELECT MAX(VOLUME) FROM mydb."+db+" WHERE date >= '" + start + "' AND date <= '" + end + "') LIMIT 1";
+        String sql = "SELECT * FROM mydb."+db+" WHERE VOLUME = (SELECT MAX(VOLUME) FROM mydb."+db+" " +
+                "WHERE date >= '" + start + "' AND date <= '" + end + "') LIMIT 1";
         List<Stock> stocks = jdbcTemplate.query(sql,
                 BeanPropertyRowMapper.newInstance(Stock.class));
         return stocks;
@@ -97,7 +99,8 @@ public class DAO {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String start = dateFormat.format(startDate);
         String end = dateFormat.format(endDate);
-        String sql = "SELECT * FROM mydb."+db+" WHERE CLOSE-OPEN = (SELECT MAX(CLOSE-OPEN) FROM mydb."+db+" WHERE date >= '" + start + "' AND date <= '" + end + "') LIMIT 1";
+        String sql = "SELECT * FROM mydb."+db+" WHERE CLOSE-OPEN = (SELECT MAX(CLOSE-OPEN) FROM mydb."+db+" " +
+                "WHERE date >= '" + start + "' AND date <= '" + end + "') LIMIT 1";
         List<Stock> stocks = jdbcTemplate.query(sql,
                 BeanPropertyRowMapper.newInstance(Stock.class));
         return stocks;
@@ -114,7 +117,8 @@ public class DAO {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String start = dateFormat.format(startDate);
         String end = dateFormat.format(endDate);
-        String sql = "SELECT * FROM mydb."+db+" WHERE CLOSE-OPEN = (SELECT MIN(CLOSE-OPEN) FROM mydb."+db+" WHERE date >= '" + start + "' AND date <= '" + end + "') LIMIT 1";
+        String sql = "SELECT * FROM mydb."+db+" WHERE CLOSE-OPEN = (SELECT MIN(CLOSE-OPEN) FROM mydb."+db+" " +
+                "WHERE date >= '" + start + "' AND date <= '" + end + "') LIMIT 1";
         List<Stock> stocks = jdbcTemplate.query(sql,
                 BeanPropertyRowMapper.newInstance(Stock.class));
         return stocks;

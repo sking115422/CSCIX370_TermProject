@@ -3,3 +3,80 @@ html {
     background-color: #203647;
     color: white;
 }
+
+h1 {
+     color: #007CC7;
+}
+
+#maincont {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+#aboutcont {
+    background-color: #202020;
+    border-radius: 15px;
+
+    height: 85vh;
+    width: 60vw;
+
+    margin-left: 2vw;
+}
+
+
+#formcont {
+    background-color: #707070;
+    width: 30vw;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    border-radius: 15px;
+
+    margin-right: 3vw;
+}
+
+#dates {
+    margin-bottom: 2vh;
+    font-size: large;
+}
+
+#amntform {
+    margin-bottom: 2vh;
+    font-size: large;
+}
+
+#pic {
+    text-align: center;
+    margin-top: 5vh;
+
+
+}
+
+img {
+    box-shadow: 0 4px 8px 0 rgba(247, 247, 247, .5 );
+    border-radius: 15px;
+}
+
+#projtitle {
+    margin-left: 1vw;
+    color: #FFDF6C;
+
+}
+
+#projdesc {
+    width: 56vw;
+    font-size: small;
+    margin-left: 2vw;
+    margin-right: 2vw;
+
+}
+
+.button {
+    margin: 1vh;
+    font-size: large;
+    border-radius: 5px;
+    color: #007CC7;
+}

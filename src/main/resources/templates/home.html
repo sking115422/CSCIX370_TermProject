@@ -2,28 +2,58 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="ISO-8859-1" />
-  <link href="css/stockpage.css" rel="stylesheet">
+  <link href="css/home.css" rel="stylesheet">
   <title>Home</title>
 </head>
 <body>
-  <h1>CSCI 4370 Stock Explorer</h1>
-  <div align="center">
-    <form>
-      <label for="startdate">Start-Date:</label><br>
-      <input type="date" id="startdate" name="startdate" min="2005-01-03" max="2016-01-12"><br>
-      <label for="enddate">End-Date:</label><br>
-      <input type="date" id="enddate" name="enddate" min="2005-01-03" max="2016-01-12"><br><br>
-      <label for="amount">Amount in $:</label><br>
-      <input type="number" id="amount" min="0" name="amount" oninput="validity.valid||(value='');">
-      </br>
-      <input type="submit" value="QQQ-Chart" formaction="/qqq">
-      </br>
-      <input type="submit" value="IWM-Chart" formaction="/iwm">
-      </br>
-      <input type="submit" value="SPY-Chart" formaction="/spy">
-      </br>
-      <input type="submit" value="VTI-Chart" formaction="/vti">
-    </form>
+  <h1>CSCI 4370 Term Project</h1>
+  <div id = "maincont">
+    <div id = "aboutcont">
+      <h2 id = "projtitle"> ETF Back Tester </h2>
+
+      <div id = "projdesc">
+        This project is a unique take on something that has been done before many times.
+        The idea was to emulate a simple stock back tester. The back tester application allows
+        a user to test the gains or losses when investing in set of 4 exchange traded funds (ETFs) listed on the
+        right over a particular time frame. <br/><br/>
+
+        This back tester allows a user to enter an amount to invest, select a time frame, then
+        select from 4 of the top ETFs in the world to invest in. The application will then calculate
+        the performance of the stock and of the investment over that particular time frame. <br/><br/>
+
+        This can be particularly useful to analyze trends in different
+        sectors of the economy, correlate economic performance with specific events in history, and to
+        try to gain an understanding of future market performance based on past trends. <br/><br/>
+      </div>
+
+      <div id = "pic">
+        <img src="https://i1.wp.com/us.123rf.com/450wm/hooyah808/hooyah8081809/hooyah808180900004/107701525-green-bull-and-red-bear-sign-symbol-stock-market-and-wold-background.jpg?ver=6"
+             alt="stock image">
+      </div>
+
+    </div>
+    <div id = "formcont" align="center">
+      <form>
+        <div id = "dates">
+          <label for="startdate">Start-Date:</label><br>
+          <input type="date" id="startdate" name="startdate" min="2005-01-03" max="2016-01-12"><br>
+          <label for="enddate">End-Date:</label><br>
+          <input type="date" id="enddate" name="enddate" min="2005-01-03" max="2016-01-12"><br><br>
+        </div>
+        <div id = "amntform">
+          <label for="amount">Amount in $:</label><br>
+          <input type="number" id="amount" min="0"  placeholder = "10000" name="amount" oninput="validity.valid||(value='');">
+        </div>
+        </br>
+        <input class = "button" type="submit" value="QQQ-Chart" formaction="/qqq"/>
+        </br>
+        <input class = "button" type="submit" value="IWM-Chart" formaction="/iwm"/>
+        </br>
+        <input class = "button" type="submit" value="SPY-Chart" formaction="/spy"/>
+        </br>
+        <input class = "button" type="submit" value="VTI-Chart" formaction="/vti"/>
+      </form>
+    </div>
   </div>
 </body>
 </html>
