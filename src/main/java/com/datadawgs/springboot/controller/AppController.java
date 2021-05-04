@@ -16,6 +16,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * This class is a controller and control all the HTML request.
+ */
 @Controller
 public class AppController {
 
@@ -27,6 +30,15 @@ public class AppController {
         return "home";
     }
 
+    /**
+     * handles /iwm request
+     * @param model carries data to view
+     * @param startdate is start date of investing stock
+     * @param enddate is end date of the investing stock
+     * @param amount is total amount invested
+     * @return navigates to template web page
+     * @throws ParseException throws when failed to parse string
+     */
     @RequestMapping("/iwm")
     public String iwmPage(Model model, @RequestParam("startdate") String startdate, @RequestParam("enddate") String  enddate, @RequestParam("amount") String amount) throws ParseException {
         double value = Double.parseDouble(amount);
@@ -74,6 +86,15 @@ public class AppController {
     }
 
 
+    /**
+     * handles /qqq request
+     * @param model carries data to view
+     * @param startdate is start date of investing stock
+     * @param enddate is end date of the investing stock
+     * @param amount is total amount invested
+     * @return navigates to template web page
+     * @throws ParseException throws when failed to parse string
+     */
     @GetMapping(path="/qqq")
     public String getVolQQQ (Model model, @RequestParam("startdate") String startdate, @RequestParam("enddate") String  enddate, @RequestParam("amount") String amount) throws ParseException {
         double value = Double.parseDouble(amount);
@@ -121,6 +142,15 @@ public class AppController {
 
     }
 
+    /**
+     * handles /spy request
+     * @param model carries data to view
+     * @param startdate is start date of investing stock
+     * @param enddate is end date of the investing stock
+     * @param amount is total amount invested
+     * @return navigates to template web page
+     * @throws ParseException throws when failed to parse string
+     */
     @GetMapping(path="/spy")
     public String getVolSPY (Model model, @RequestParam("startdate") String startdate, @RequestParam("enddate") String  enddate, @RequestParam("amount") String amount) throws ParseException {
         double value = Double.parseDouble(amount);
@@ -168,6 +198,15 @@ public class AppController {
 
     }
 
+    /**
+     * handles /vti request
+     * @param model carries data to view
+     * @param startdate is start date of investing stock
+     * @param enddate is end date of the investing stock
+     * @param amount is total amount invested
+     * @return navigates to template web page
+     * @throws ParseException throws when failed to parse string
+     */
     @GetMapping(path="/vti")
     public String getVolVTI (Model model, @RequestParam("startdate") String startdate, @RequestParam("enddate") String  enddate, @RequestParam("amount") String amount) throws ParseException {
         double value = Double.parseDouble(amount);
