@@ -59,6 +59,7 @@ controller class to handle the flow of our application between the home page and
 
 ## To run
 1. Download the project files from [GitHub](https://github.com/sking115422/CSCIX370_TermProject) or use the files provide on eLC and extract the .zip file to a local folder.
+2. After extraction go into the following file src/main/resources/application.properties and update the username and password values for your database.
 3. Run the run_project.py file. This should set up the databases associated in MySQL after prompting you for your username (probably root) and a password, 
    compile and run the project code, and finally after a few seconds it should open a browser with the home page of the app displaying.
 4. If the browser does not automatically display, open a browser and type "http://localhost:8080/". This should navigate you to the homepage of the project.
